@@ -74,11 +74,19 @@ const Home: FC = () => {
             custom={2}
             variants={fadeInUp}
           >
-            <img 
-              src="https://images.unsplash.com/photo-1573167507387-6b4b98cb7c13?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-              alt="Salesforce cloud technology" 
-              className="w-full max-w-md rounded-2xl shadow-lg" 
-            />
+            <div className="relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary to-blue-500 rounded-full blur-md"></div>
+              <div className="relative">
+                <img 
+                  src="/images/profile_pic_square.jpg" 
+                  alt="Mrenank Rastogi" 
+                  className="w-64 h-64 object-cover rounded-full border-4 border-background" 
+                />
+              </div>
+              <div className="absolute -bottom-4 -right-4 bg-card px-4 py-2 rounded-full shadow-lg border text-sm font-medium">
+                3x Certified
+              </div>
+            </div>
           </motion.div>
         </div>
         

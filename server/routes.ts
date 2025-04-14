@@ -47,6 +47,29 @@ export async function registerRoutes(app: Express): Promise<Server> {
       });
     }
   });
+  
+  // Certificate downloads
+  app.get("/certificates/:filename", (req, res) => {
+    const certificatePath = path.resolve(
+      process.cwd(),
+      "client/public/certificates",
+      req.params.filename
+    );
+    
+    if (fs.existsSync(certificatePath)) {
+      res.setHeader("Content-Type", "application/pdf");
+      res.setHeader(
+        "Content-Disposition",
+        `inline; filename=${req.params.filename}`
+      );
+      fs.createReadStream(certificatePath).pipe(res);
+    } else {
+      res.status(404).json({
+        success: false,
+        message: "Certificate file not found"
+      });
+    }
+  });
 
   const httpServer = createServer(app);
 

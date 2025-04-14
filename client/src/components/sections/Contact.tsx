@@ -195,7 +195,7 @@ const Contact: FC = () => {
                   </div>
                   <div>
                     <p className="font-medium text-muted-foreground">GitHub</p>
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                    <a href={`https://github.com/${contact.github}`} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
                       {contact.github}
                     </a>
                   </div>
@@ -207,7 +207,7 @@ const Contact: FC = () => {
                   </div>
                   <div>
                     <p className="font-medium text-muted-foreground">LinkedIn</p>
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                    <a href="https://linkedin.com/in/mrenank-rastogi-4454651b5/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
                       {contact.linkedin}
                     </a>
                   </div>
