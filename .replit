@@ -9,6 +9,7 @@ channel = "stable-24_05"
 deploymentTarget = "static"
 build = ["sh", "-c", "npm run build"]
 publicDir = "dist"
+run = ["sh", "-c", "node dist/index.js"]
 
 [[ports]]
 localPort = 5000
