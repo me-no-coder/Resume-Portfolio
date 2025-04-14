@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { RiArrowRightLine, RiAwardLine, RiCodeLine, RiTrophyLine } from "react-icons/ri";
 import { portfolioData } from "@/data/portfolio";
 import { scrollToSection } from "@/lib/utils";
+import Typewriter from "typewriter-effect";
 
 const Home: FC = () => {
   const { name, title, summary, stats } = portfolioData;
@@ -44,9 +45,40 @@ const Home: FC = () => {
           >
             <h2 className="text-3xl lg:text-4xl font-heading font-bold mb-4">
               <span className="block text-muted-foreground">Hello, I'm</span>
-              <span className="text-4xl lg:text-5xl text-primary">{name}</span>
+              <span className="text-4xl lg:text-5xl text-primary">
+                <Typewriter
+                  onInit={(typewriter) => {
+                    typewriter
+                      .typeString(name)
+                      .pauseFor(3000)
+                      .deleteAll()
+                      .typeString(name)
+                      .start();
+                  }}
+                />
+              </span>
             </h2>
-            <h3 className="text-xl lg:text-2xl text-muted-foreground font-medium mb-6">{title}</h3>
+            <h3 className="text-xl lg:text-2xl text-muted-foreground font-medium mb-6">
+              <Typewriter
+                onInit={(typewriter) => {
+                  typewriter
+                    .typeString(title)
+                    .pauseFor(2000)
+                    .deleteAll()
+                    .typeString('Developer')
+                    .pauseFor(1000)
+                    .deleteAll()
+                    .typeString('Trailblazer')
+                    .pauseFor(1000)
+                    .deleteAll()
+                    .typeString('Problem Solver')
+                    .pauseFor(1000)
+                    .deleteAll()
+                    .typeString(title)
+                    .start();
+                }}
+              />
+            </h3>
             <p className="text-muted-foreground mb-8 leading-relaxed">
               {summary}
             </p>

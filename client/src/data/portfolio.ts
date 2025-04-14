@@ -69,7 +69,7 @@ export const portfolioData = {
     {
       title: "Email Automation System",
       description: "Implemented Scheduled Flows, Apex Triggers, and Platform Events to automate email triggering and reply checking, reducing manual effort by 42%.",
-      image: "https://images.unsplash.com/photo-1617131543322-d65a185077e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      image: "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
       technologies: ["Platform Events", "Apex Triggers", "Flows"]
     },
     {

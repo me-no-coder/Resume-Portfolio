@@ -124,7 +124,7 @@ const Certifications: FC = () => {
               variant="secondary" 
               size="lg" 
               className="bg-white text-primary hover:bg-white/90"
-              onClick={() => window.open("https://trailblazer.me", "_blank")}
+              onClick={() => window.open("https://www.salesforce.com/trailblazer/mrenankrastogi", "_blank")}
             >
               View Trailhead Profile <RiExternalLinkLine className="ml-2" />
             </Button>
