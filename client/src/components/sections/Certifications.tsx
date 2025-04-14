@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { RiExternalLinkLine, RiCustomerService2Line, RiBarChartBoxAiLine, RiCodeBoxLine } from "react-icons/ri";
+import { RiExternalLinkLine, RiCustomerService2Line, RiBarChartBoxAiLine, RiCodeBoxLine, RiDownloadLine, RiVerifiedBadgeFill } from "react-icons/ri";
 import { portfolioData } from "@/data/portfolio";
 
 const Certifications: FC = () => {
@@ -69,9 +69,30 @@ const Certifications: FC = () => {
                 {getCertificateIcon(cert.icon)}
               </div>
               <h3 className="font-heading font-semibold text-lg text-center mb-2">{cert.title}</h3>
-              <p className="text-sm text-muted-foreground text-center mb-4">{cert.date}</p>
-              <div className="w-full bg-green-600/20 text-green-600 text-sm font-medium text-center py-1 rounded-full">
-                Credential Verified
+              <p className="text-sm text-muted-foreground text-center mb-1">{cert.date}</p>
+              <p className="text-xs text-muted-foreground text-center mb-3">
+                Credential ID: {cert.credentialId}
+              </p>
+              <div className="flex flex-col w-full gap-2 mb-3">
+                <div className="w-full bg-green-600/20 text-green-600 text-sm font-medium text-center py-1 rounded-full flex items-center justify-center">
+                  <RiVerifiedBadgeFill className="mr-1" /> Credential Verified
+                </div>
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="w-full"
+                  onClick={() => window.open(`/certificates/${cert.certificateFile}`, '_blank')}
+                >
+                  <RiDownloadLine className="mr-1" /> View Certificate
+                </Button>
+                <Button 
+                  variant="link" 
+                  size="sm" 
+                  className="text-xs text-muted-foreground"
+                  onClick={() => window.open("https://sforce.co/verifycerts", '_blank')}
+                >
+                  <RiExternalLinkLine className="mr-1" /> Verify at Salesforce
+                </Button>
               </div>
             </motion.div>
           ))}

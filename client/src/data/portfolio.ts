@@ -115,18 +115,24 @@ export const portfolioData = {
   certifications: [
     {
       title: "Salesforce Certified Administrator",
-      date: "February, 2024",
-      icon: "customer-service"
+      date: "February 05, 2024",
+      icon: "customer-service",
+      credentialId: "4105652",
+      certificateFile: "Administrator_Certificate.pdf"
     },
     {
       title: "Salesforce Certified AI Associate",
-      date: "March, 2025",
-      icon: "ai"
+      date: "March 21, 2025",
+      icon: "ai",
+      credentialId: "5920341",
+      certificateFile: "AI_Associate_Certificate.pdf"
     },
     {
       title: "Salesforce Certified Platform Developer I",
-      date: "April, 2025",
-      icon: "code"
+      date: "April 12, 2025",
+      icon: "code",
+      credentialId: "6040282",
+      certificateFile: "PlatformDeveloperI_Certificate.pdf"
     }
   ],
   trailhead: {
@@ -134,17 +140,17 @@ export const portfolioData = {
     points: "46,000+"
   },
   contact: {
-    email: "mrenank@example.com",
-    phone: "+1 (234) 567-890",
-    github: "github.com/mrenank",
-    linkedin: "linkedin.com/in/mrenank"
+    email: "mrenankrastogi@gmail.com",
+    phone: "+91 9140692361",
+    github: "github.com/me-no-coder",
+    linkedin: "linkedin.com/in/mrenank-rastogi-4454651b5"
   },
   socialLinks: {
-    github: "https://github.com",
-    linkedin: "https://linkedin.com",
-    website: "https://example.com",
-    email: "mrenank@example.com",
-    phone: "+1 (234) 567-890"
+    github: "https://github.com/me-no-coder",
+    linkedin: "https://linkedin.com/in/mrenank-rastogi-4454651b5",
+    website: "https://me-no-coder.github.io/resume/",
+    email: "mrenankrastogi@gmail.com",
+    phone: "+91 9140692361"
   },
   resumeUrl: "/api/download-resume",
   stats: [
