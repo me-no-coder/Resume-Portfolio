@@ -62,25 +62,27 @@ const Certifications: FC = () => {
           {certifications.map((cert, index) => (
             <motion.div 
               key={index} 
-              className="certificate-badge bg-card p-6 rounded-xl shadow-md border flex flex-col items-center"
+              className="certificate-badge bg-card p-6 rounded-xl shadow-md border flex flex-col items-center group transition-all duration-300 hover:shadow-lg hover:border-primary/40 hover:-translate-y-1"
               variants={fadeIn}
             >
-              <div className="w-24 h-24 mb-4 rounded-full bg-primary/10 flex items-center justify-center">
-                {getCertificateIcon(cert.icon)}
+              <div className="w-24 h-24 mb-4 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                <div className="transition-transform duration-300 group-hover:scale-110">
+                  {getCertificateIcon(cert.icon)}
+                </div>
               </div>
-              <h3 className="font-heading font-semibold text-lg text-center mb-2">{cert.title}</h3>
+              <h3 className="font-heading font-semibold text-lg text-center mb-2 group-hover:text-primary transition-colors duration-300">{cert.title}</h3>
               <p className="text-sm text-muted-foreground text-center mb-1">{cert.date}</p>
               <p className="text-xs text-muted-foreground text-center mb-3">
                 Credential ID: {cert.credentialId}
               </p>
               <div className="flex flex-col w-full gap-2 mb-3">
-                <div className="w-full bg-green-600/20 text-green-600 text-sm font-medium text-center py-1 rounded-full flex items-center justify-center">
+                <div className="w-full bg-green-600/20 text-green-600 text-sm font-medium text-center py-1 rounded-full flex items-center justify-center group-hover:bg-green-600/30 transition-colors duration-300">
                   <RiVerifiedBadgeFill className="mr-1" /> Credential Verified
                 </div>
                 <Button 
                   variant="outline" 
                   size="sm" 
-                  className="w-full"
+                  className="w-full transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
                   onClick={() => window.open(`/certificates/${cert.certificateFile}`, '_blank')}
                 >
                   <RiDownloadLine className="mr-1" /> View Certificate
@@ -88,7 +90,7 @@ const Certifications: FC = () => {
                 <Button 
                   variant="link" 
                   size="sm" 
-                  className="text-xs text-muted-foreground"
+                  className="text-xs text-muted-foreground hover:text-primary transition-colors duration-300"
                   onClick={() => window.open("https://sforce.co/verifycerts", '_blank')}
                 >
                   <RiExternalLinkLine className="mr-1" /> Verify at Salesforce
@@ -123,10 +125,10 @@ const Certifications: FC = () => {
             <Button 
               variant="secondary" 
               size="lg" 
-              className="bg-white text-primary hover:bg-white/90"
+              className="bg-white text-primary hover:bg-white/90 transition-all duration-300 hover:shadow-lg hover:translate-y-[-2px]"
               onClick={() => window.open("https://www.salesforce.com/trailblazer/mrenankrastogi", "_blank")}
             >
-              View Trailhead Profile <RiExternalLinkLine className="ml-2" />
+              View Trailhead Profile <RiExternalLinkLine className="ml-2 group-hover:animate-bounce" />
             </Button>
           </div>
         </motion.div>

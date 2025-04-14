@@ -49,30 +49,34 @@ const Projects: FC = () => {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="bg-card rounded-xl shadow-md border overflow-hidden"
+              className="bg-card rounded-xl shadow-md border overflow-hidden group transition-all duration-300 hover:shadow-lg hover:border-primary/40 hover:-translate-y-1"
               variants={fadeIn}
             >
               <div className="h-48 overflow-hidden">
                 <img 
                   src={project.image} 
                   alt={project.title} 
-                  className="w-full h-full object-cover transition-transform hover:scale-105 duration-500"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
               <div className="p-6">
-                <h3 className="font-heading font-semibold text-xl mb-2">{project.title}</h3>
+                <h3 className="font-heading font-semibold text-xl mb-2 transition-colors duration-300 group-hover:text-primary">{project.title}</h3>
                 <p className="text-muted-foreground mb-4">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech, idx) => (
-                    <Badge key={idx} variant="secondary" className="text-xs font-medium">
+                    <Badge 
+                      key={idx} 
+                      variant="secondary" 
+                      className="text-xs font-medium transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
+                    >
                       {tech}
                     </Badge>
                   ))}
                 </div>
-                <button className="text-primary font-medium hover:underline inline-flex items-center" disabled>
-                  View Details <RiArrowRightLine className="ml-1" />
+                <button className="text-primary font-medium hover:underline inline-flex items-center group-hover:text-primary/80 transition-all duration-300" disabled>
+                  View Details <RiArrowRightLine className="ml-1 transition-transform duration-300 group-hover:translate-x-1" />
                 </button>
               </div>
             </motion.div>

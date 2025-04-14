@@ -37,13 +37,7 @@
   
   /* Progress bar styles no longer needed as they are applied directly in the component */
   
-  .certificate-badge {
-    transition: transform 0.3s ease;
-  }
-  
-  .certificate-badge:hover {
-    transform: scale(1.05);
-  }
+  /* Certificate badge styles are now handled directly in the component */
   
   .nav-link {
     position: relative;
