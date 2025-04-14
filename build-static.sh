@@ -38,6 +38,7 @@
 #!/bin/bash
 echo "Building static portfolio website..."
 
+echo "npx update-browserslist-db@latest"
 # Ensure the script has execute permissions
 chmod +x build-static.sh
 
