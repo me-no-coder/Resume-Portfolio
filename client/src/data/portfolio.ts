@@ -118,21 +118,21 @@ export const portfolioData = {
       date: "February 05, 2024",
       icon: "customer-service",
       credentialId: "4105652",
-      certificateFile: "Administrator_Certificate.pdf"
+      certificateFile: "salesforce_administrator.pdf"
     },
     {
       title: "Salesforce Certified AI Associate",
       date: "March 21, 2025",
       icon: "ai",
       credentialId: "5920341",
-      certificateFile: "AI_Associate_Certificate.pdf"
+      certificateFile: "salesforce_ai_associate.pdf"
     },
     {
       title: "Salesforce Certified Platform Developer I",
       date: "April 12, 2025",
       icon: "code",
       credentialId: "6040282",
-      certificateFile: "PlatformDeveloperI_Certificate.pdf"
+      certificateFile: "salesforce_platform_developer.pdf"
     }
   ],
   trailhead: {
