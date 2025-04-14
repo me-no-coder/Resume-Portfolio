@@ -9,12 +9,12 @@ export const Footer: FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="px-6 py-8 bg-primary-foreground text-background">
+    <footer className="px-6 py-8 bg-card dark:bg-gray-900 border-t">
       <div className="max-w-4xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-center justify-between">
           <div className="mb-6 md:mb-0">
             <div className="flex items-center">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-blue-400 flex items-center justify-center text-white font-bold text-sm">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-blue-400 flex items-center justify-center text-primary-foreground font-bold text-sm">
                 MR
               </div>
               <div className="ml-3">
@@ -24,13 +24,13 @@ export const Footer: FC = () => {
             </div>
           </div>
           
-          <div className="flex space-x-4">
+          <div className="flex space-x-5">
             {socialLinks.github && (
               <a 
                 href={socialLinks.github} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-muted-foreground hover:text-foreground transition-colors"
+                className="text-foreground/70 hover:text-primary transition-colors duration-300"
                 aria-label="GitHub Profile"
               >
                 <SiGithub className="text-xl" />
@@ -41,7 +41,7 @@ export const Footer: FC = () => {
                 href={socialLinks.linkedin} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-muted-foreground hover:text-foreground transition-colors"
+                className="text-foreground/70 hover:text-primary transition-colors duration-300"
                 aria-label="LinkedIn Profile"
               >
                 <SiLinkedin className="text-xl" />
@@ -52,7 +52,7 @@ export const Footer: FC = () => {
                 href={socialLinks.website} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-muted-foreground hover:text-foreground transition-colors"
+                className="text-foreground/70 hover:text-primary transition-colors duration-300"
                 aria-label="Personal Website"
               >
                 <HiGlobeAlt className="text-xl" />
@@ -61,7 +61,7 @@ export const Footer: FC = () => {
             {socialLinks.email && (
               <a 
                 href={`mailto:${socialLinks.email}`} 
-                className="text-muted-foreground hover:text-foreground transition-colors"
+                className="text-foreground/70 hover:text-primary transition-colors duration-300"
                 aria-label="Email Contact"
               >
                 <SiGmail className="text-xl" />
@@ -70,7 +70,7 @@ export const Footer: FC = () => {
             {socialLinks.phone && (
               <a 
                 href={`tel:${socialLinks.phone}`} 
-                className="text-muted-foreground hover:text-foreground transition-colors"
+                className="text-foreground/70 hover:text-primary transition-colors duration-300"
                 aria-label="Phone Contact"
               >
                 <BsTelephone className="text-xl" />

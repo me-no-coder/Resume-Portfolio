@@ -60,17 +60,21 @@ const Skills: FC = () => {
             
             <div className="space-y-6">
               {skills.salesforceStack.map((skill, index) => (
-                <div key={index}>
+                <div 
+                  key={index} 
+                  className="group hover:-translate-y-1 transition-transform duration-300"
+                >
                   <div className="flex justify-between mb-2">
-                    <span className="font-medium text-muted-foreground">{skill.name}</span>
-                    <span className="text-sm text-muted-foreground">{skill.proficiency}%</span>
+                    <span className="font-medium text-foreground/80 group-hover:text-primary transition-colors duration-300">{skill.name}</span>
+                    <span className="text-sm text-muted-foreground group-hover:text-primary transition-colors duration-300">{skill.proficiency}%</span>
                   </div>
-                  <div className="progress-bar">
+                  <div className="progress-bar bg-muted/50 h-2 rounded-full overflow-hidden">
                     <motion.div 
-                      className="progress-fill"
+                      className="h-full bg-gradient-to-r from-primary to-blue-400 group-hover:from-blue-500 group-hover:to-primary transition-colors duration-500"
                       initial={{ width: "0%" }}
                       animate={{ width: `${skill.proficiency}%` }}
                       transition={{ duration: 1, delay: 0.2 * index }}
+                      whileHover={{ scale: 1.03 }}
                     ></motion.div>
                   </div>
                 </div>
@@ -83,9 +87,12 @@ const Skills: FC = () => {
             
             <div className="grid grid-cols-2 gap-4 mb-8">
               {skills.devTools.map((tool, index) => (
-                <div key={index} className="bg-card p-4 rounded-lg shadow-sm border flex items-center">
+                <div 
+                  key={index} 
+                  className="bg-card p-4 rounded-lg shadow-sm border flex items-center transition-all duration-300 hover:shadow-md hover:border-primary/40 hover:bg-primary/5 cursor-pointer"
+                >
                   {renderDevToolIcon(tool, index)}
-                  <span className="font-medium text-muted-foreground">{tool}</span>
+                  <span className="font-medium text-foreground/80 group-hover:text-foreground">{tool}</span>
                 </div>
               ))}
             </div>
@@ -94,7 +101,11 @@ const Skills: FC = () => {
             
             <div className="flex flex-wrap gap-3">
               {skills.additionalSkills.map((skill, index) => (
-                <Badge key={index} variant="outline" className="bg-primary/10 text-primary px-4 py-2 rounded-full font-medium">
+                <Badge 
+                  key={index} 
+                  variant="outline" 
+                  className="bg-primary/10 text-primary px-4 py-2 rounded-full font-medium transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:scale-105"
+                >
                   {skill}
                 </Badge>
               ))}

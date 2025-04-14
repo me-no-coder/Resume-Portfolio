@@ -35,19 +35,7 @@
     border: 2px solid hsl(var(--background));
   }
   
-  .progress-bar {
-    height: 8px;
-    border-radius: 4px;
-    background: hsl(var(--muted));
-    overflow: hidden;
-  }
-  
-  .progress-fill {
-    height: 100%;
-    border-radius: 4px;
-    transition: width 1s ease-in-out;
-    background: hsl(var(--primary));
-  }
+  /* Progress bar styles no longer needed as they are applied directly in the component */
   
   .certificate-badge {
     transition: transform 0.3s ease;
