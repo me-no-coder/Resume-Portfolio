@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+
+  .timeline-container::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background: hsl(var(--primary));
+    left: 32px;
+    top: 0;
+  }
+  
+  .timeline-container {
+    position: relative;
+  }
+  
+  .timeline-dot {
+    position: absolute;
+    left: 28px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: hsl(var(--primary));
+    border: 2px solid hsl(var(--background));
+  }
+  
+  .progress-bar {
+    height: 8px;
+    border-radius: 4px;
+    background: hsl(var(--muted));
+    overflow: hidden;
+  }
+  
+  .progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 1s ease-in-out;
+    background: hsl(var(--primary));
+  }
+  
+  .certificate-badge {
+    transition: transform 0.3s ease;
+  }
+  
+  .certificate-badge:hover {
+    transform: scale(1.05);
+  }
+  
+  .nav-link {
+    position: relative;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: hsl(var(--primary));
+    transition: width 0.3s ease;
+  }
+  
+  .nav-link.active::after, 
+  .nav-link:hover::after {
+    width: 100%;
+  }
+}
