@@ -1,11 +1,16 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Mail } from "lucide-react";
+import { Mail, ZoomIn } from "lucide-react";
 import { motion } from "framer-motion";
 import { RiArrowRightLine, RiAwardLine, RiCodeLine, RiTrophyLine } from "react-icons/ri";
 import { portfolioData } from "@/data/portfolio";
 import { scrollToSection } from "@/lib/utils";
 import Typewriter from "typewriter-effect";
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 const Home: FC = () => {
   const { name, title, summary, stats } = portfolioData;
@@ -108,13 +113,27 @@ const Home: FC = () => {
           >
             <div className="relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-primary to-blue-500 rounded-full blur-md"></div>
-              <div className="relative">
-                <img 
-                  src="/images/profile_pic_square.jpg" 
-                  alt="Mrenank Rastogi" 
-                  className="w-64 h-64 object-cover rounded-full border-4 border-background" 
-                />
-              </div>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <div className="relative cursor-pointer group">
+                    <img 
+                      src="/images/profile_pic_square.jpg" 
+                      alt="Mrenank Rastogi" 
+                      className="w-64 h-64 object-cover rounded-full border-4 border-background transition-transform duration-300 group-hover:scale-105" 
+                    />
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-80 transition-opacity duration-300 bg-primary/20 rounded-full w-full h-full flex items-center justify-center">
+                      <ZoomIn size={32} className="text-background" />
+                    </div>
+                  </div>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-md md:max-w-xl bg-transparent border-0">
+                  <img 
+                    src="/images/profile_pic_square.jpg" 
+                    alt="Mrenank Rastogi" 
+                    className="w-full h-auto rounded-lg shadow-xl" 
+                  />
+                </DialogContent>
+              </Dialog>
               <div className="absolute -bottom-4 -right-4 bg-card px-4 py-2 rounded-full shadow-lg border text-sm font-medium">
                 3x Certified
               </div>

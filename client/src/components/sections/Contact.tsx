@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useState, useRef } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -9,8 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
 import { RiMailLine, RiPhoneLine, RiGithubFill, RiLinkedinBoxFill, RiCodeBoxLine, RiToolsLine, RiTrophyLine } from "react-icons/ri";
 import { portfolioData } from "@/data/portfolio";
-import { isValidEmail, scrollToSection, sendContactForm } from "@/lib/utils";
-import { useMutation } from "@tanstack/react-query";
+import { isValidEmail, scrollToSection } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
@@ -34,27 +33,46 @@ const Contact: FC = () => {
     },
   });
 
-  const contactMutation = useMutation({
-    mutationFn: sendContactForm,
-    onSuccess: () => {
-      toast({
-        title: "Message sent successfully!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
-        variant: "default",
-      });
-      form.reset();
-    },
-    onError: (error) => {
-      toast({
-        title: "Failed to send message",
-        description: error instanceof Error ? error.message : "Please try again later.",
-        variant: "destructive",
-      });
-    },
-  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const onSubmit = (data: z.infer<typeof formSchema>) => {
-    contactMutation.mutate(data);
+    if (formRef.current) {
+      setIsSubmitting(true);
+      // FormSubmit will handle the form submission
+      formRef.current.action = `https://formsubmit.co/${contact.email}`;
+      formRef.current.method = "POST";
+      
+      // Add hidden fields for FormSubmit configuration
+      const hiddenFields = [
+        { name: "_subject", value: `Portfolio Contact: ${data.subject}` },
+        { name: "_captcha", value: "true" },
+        { name: "_template", value: "table" },
+        { name: "_next", value: window.location.href },
+      ];
+      
+      // Remove any existing hidden fields
+      formRef.current.querySelectorAll('input[type="hidden"]').forEach(el => el.remove());
+      
+      // Add the configuration fields
+      hiddenFields.forEach(field => {
+        const input = document.createElement('input');
+        input.type = "hidden";
+        input.name = field.name;
+        input.value = field.value;
+        formRef.current?.appendChild(input);
+      });
+      
+      // Submit the form
+      setTimeout(() => {
+        formRef.current?.submit();
+        toast({
+          title: "Sending message...",
+          description: "You will be redirected to complete the submission.",
+          variant: "default",
+        });
+      }, 500);
+    }
   };
 
   const fadeIn = {
@@ -87,7 +105,7 @@ const Contact: FC = () => {
             variants={fadeIn}
           >
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <form ref={formRef} onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <FormField
                   control={form.control}
                   name="name"
@@ -147,9 +165,9 @@ const Contact: FC = () => {
                 <Button 
                   type="submit" 
                   className="w-full"
-                  disabled={contactMutation.isPending}
+                  disabled={isSubmitting}
                 >
-                  {contactMutation.isPending ? "Sending..." : "Send Message"}
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             </Form>
